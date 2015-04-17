@@ -1,0 +1,14 @@
+{
+  "name": "aimonb-systemd",
+  "version": "0.1.0",
+  "author": "aimonb",
+  "summary": "Puppet interface to systemctl",
+  "license": "MIT",
+  "source": "https://github.com/aimonb/puppet-systemd",
+  "project_page": "https://github.com/aimonb/puppet-systemd",
+  "issues_url": "https://github.com/aimonb/puppet-systemd/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+
