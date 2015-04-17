@@ -1,0 +1,14 @@
+{
+  "name": "aimonb-systemd",
+  "version": "0.1.2",
+  "author": "aimonb",
+  "summary": "Puppet interface to systemctl",
+  "license": "Apache License",
+  "source": "https://github.com/NexusIS/puppet-systemd",
+  "project_page": "https://github.com/NexusIS/puppet-systemd",
+  "issues_url": "https://github.com/NexusIS/puppet-systemd/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+

@@ -1,0 +1,5 @@
+[gerrit]
+host=gerrit.denicacloud.com
+port=29418
+project=puppet-systemd.git
+defaultbranch=master

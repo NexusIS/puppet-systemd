@@ -1,0 +1,4 @@
+fixtures:
+    symlinks:
+        stdlib: "#{source_dir}/../stdlib"
+        systemd: "#{source_dir}"
