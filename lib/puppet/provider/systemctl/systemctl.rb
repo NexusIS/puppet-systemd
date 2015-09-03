@@ -17,14 +17,15 @@ Puppet::Type.type(:systemctl).provide(:systemctl) do
   end
 
   def create
-    case resource[:command]
-    when 'enable', 'disable', 'start', 'stop', 'restart', 'try-restart', 'reload', 'reload-or-restart', 'reload-or-try-restart'
-      comm = resource[:command] 
-    else
-      raise Puppet::Error, "Command must be one of: 'enable', 'disable', 'start', 'stop', 'restart', 'try-restart', 'reload', 'reload-or-restart', 'reload-or-try-restart'"
-    end
+   # case resource[:command]
+   # when 'enable', 'disable', 'start', 'stop', 'restart', 'try-restart', 'reload', 'reload-or-restart', 'reload-or-try-restart', 'mask', 'unmask'
+   #   comm = resource[:command]
+   # else
+   #   raise Puppet::Error, "Command must be one of: 'enable', 'disable', 'start', 'stop', 'restart', 'try-restart', 'reload', 'reload-or-restart', 'reload-or-try-restart', 'mask', 'unmask'"
+   # end
     begin
-      systemctl(comm, "#{name}.service")
+      comm = resource[:command]
+      systemctl(comm, "#{name}")
     rescue Puppet::ExecutionFailure => e
       raise Puppet::Error, "Command failed with: #{e}"
     end
@@ -42,14 +43,14 @@ Puppet::Type.type(:systemctl).provide(:systemctl) do
         return status
       end
       return !status
-    when 'restart', 'try-restart', 'reload', 'reload-or-restart', 'reload-or-try-restart'
+    when 'restart', 'try-restart', 'reload', 'reload-or-restart', 'reload-or-try-restart', 'mask', 'unmask'
       return false
     end
   end
 
   def self.isenabled?
     begin
-      systemctl('is-enabled', "#{name}.service")
+      systemctl('is-enabled', "#{name}")
       return true
     rescue Puppet::ExecutionFailure => e
       return false
@@ -58,7 +59,7 @@ Puppet::Type.type(:systemctl).provide(:systemctl) do
   
   def self.status?
     begin
-      systemctl('status', "#{name}.service")
+      systemctl('status', "#{name}")
       return true
     rescue Puppet::ExecutionFailure => e
       return false
