@@ -62,7 +62,7 @@ Simple exampole to disable mysqld from starting at boot:
     systemctl{'mysql':
       command =>  'disable',
     }
-  
+
 
 ## Reference
 
