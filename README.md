@@ -64,6 +64,16 @@ Simple exampole to disable mysqld from starting at boot:
     }
   
 
+Or you can use hiera like:
+```
+---
+systemd::systemctl:
+  'ntpd':
+    command: 'mask'
+  'multi-user.target':
+    command: 'disable'
+```
+
 ## Reference
 
 
