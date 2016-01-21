@@ -21,7 +21,7 @@ describe Puppet::Type.type(:systemctl) do
       end
     end
     
-    ['enable', 'disable', 'start', 'stop', 'restart', 'try-restart', 'reload', 'reload-or-restart', 'reload-or-try-restart'].each do |command|
+    ['enable', 'disable', 'start', 'stop', 'restart', 'try-restart', 'reload', 'reload-or-restart', 'reload-or-try-restart', 'mask', 'unmask'].each do |command|
       it "#{command} should work" do
         c = described_class.new(:name => 'myservice',
                                 :command => command)
