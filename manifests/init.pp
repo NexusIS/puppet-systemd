@@ -35,4 +35,9 @@
 #
 # Copyright 2015 Your name here, unless otherwise noted.
 #
-class systemd() {}
+class systemd(
+$systemctl = undef,
+) {
+  $commands = hiera_hash('systemd::systemctl')
+  create_resources(systemctl, $commands)
+}
